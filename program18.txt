@@ -1,0 +1,276 @@
+C:\Users\Administrator>mongo
+2022-05-17T11:47:00.211+0530 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, wi
+ll zero-out data files
+MongoDB shell version: 3.2.22
+connecting to: test
+> use Movie:
+switched to db Movie
+> db.Moviedetails.insert({"Title":"Godha","Writer":"Basil","Year":"2017","Actors":"Tovino"})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"Queen","Writer":"Dijo","Year":"2018","Actors":"Dhruvan"})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"KGF1","Writer":PrasanthNeel","Year":"2018","Actors":"Yash"})
+2022-05-17T11:54:38.885+0530 E QUERY    [thread1] SyntaxError: missing } after property list @(shell
+):1:60
+
+> db.Moviedetails.insert({"Title":"KGF1","Writer":"PrasanthNeel","Year":"2018","Actors":"Yash"})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"KGF2","Writer":"PrasanthNeel","Year":"2022","Actors":"Yash"})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"Minnaram","Writer":"Priyadharshan","Year":"1999","Actors":"Mohanl
+al"})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"RRR","Writer":"PrasanthNeel","Year":"2022","Actors":"Ramcharan"})
+
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"RRR","Writer":"PrasanthNeel","Year":"2022","Actors":"Ramcharan"})
+> db.Moviedetails.insert({"Title":"Krishna","Writer":"Arun","Year":"2010","Actors":"Allu Arjun"})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"Madhuram","Writer":"Ahammed","Year":"2021","Actors":"Joju"})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"Janaganamana","Writer":"Dijo","Year":"2022","Actors":"Prithviraj"
+})
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.insert({"Title":"Lucifer","Writer":"Prithviraj","Year":"2019","Actors":"Mohanlal"}
+)
+WriteResult({ "nInserted" : 1 })
+> db.Moviedetails.find().pretty()
+{
+        "_id" : ObjectId("62833f07ff21fb33aaaa82af"),
+        "Title" : "Godha",
+        "Writer" : "Basil",
+        "Year" : "2017",
+        "Actors" : "Tovino"
+}
+{
+        "_id" : ObjectId("62833f5fff21fb33aaaa82b0"),
+        "Title" : "Queen",
+        "Writer" : "Dijo",
+        "Year" : "2018",
+        "Actors" : "Dhruvan"
+}
+{
+        "_id" : ObjectId("62833fb8ff21fb33aaaa82b1"),
+        "Title" : "KGF1",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2018",
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("6283400bff21fb33aaaa82b2"),
+        "Title" : "KGF2",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2022",
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("62834051ff21fb33aaaa82b3"),
+        "Title" : "Minnaram",
+        "Writer" : "Priyadharshan",
+        "Year" : "1999",
+        "Actors" : "Mohanlal"
+}
+{
+        "_id" : ObjectId("62834080ff21fb33aaaa82b4"),
+        "Title" : "RRR",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2022",
+        "Actors" : "Ramcharan"
+}
+{
+        "_id" : ObjectId("628c58e9236e5c730f1afd23"),
+        "Title" : "Krishna",
+        "Writer" : "Arun",
+        "Year" : "2010",
+        "Actors" : "Allu Arjun"
+}
+{
+        "_id" : ObjectId("628c5915236e5c730f1afd24"),
+        "Title" : "Madhuram",
+        "Writer" : "Ahammed",
+        "Year" : "2021",
+        "Actors" : "Joju"
+}
+{
+        "_id" : ObjectId("628c596f236e5c730f1afd25"),
+        "Title" : "Janaganamana",
+        "Writer" : "Dijo",
+        "Year" : "2022",
+        "Actors" : "Prithviraj"
+}
+{
+        "_id" : ObjectId("628c59a5236e5c730f1afd26"),
+        "Title" : "Lucifer",
+        "Writer" : "Prithviraj",
+        "Year" : "2019",
+        "Actors" : "Mohanlal"
+}
+>> db.Moviedetails.update({"Title":"Lucifer","Writer":"Prithviraj","Year":"2019","Actors":"Mohanlal"}
+,{"Title":"Doctor","Writer":"Nelson","Year":"2021","Actors":"Sivakarthikeyan"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Moviedetails.find().pretty()
+{
+        "_id" : ObjectId("62833f07ff21fb33aaaa82af"),
+        "Title" : "Godha",
+        "Writer" : "Basil",
+        "Year" : "2017",
+        "Actors" : "Tovino"
+}
+{
+        "_id" : ObjectId("62833f5fff21fb33aaaa82b0"),
+        "Title" : "Queen",
+        "Writer" : "Dijo",
+        "Year" : "2018",
+        "Actors" : "Dhruvan"
+}
+{
+        "_id" : ObjectId("62833fb8ff21fb33aaaa82b1"),
+        "Title" : "KGF1",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2018",
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("6283400bff21fb33aaaa82b2"),
+        "Title" : "KGF2",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2022",
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("62834051ff21fb33aaaa82b3"),
+        "Title" : "Minnaram",
+        "Writer" : "Priyadharshan",
+        "Year" : "1999",
+        "Actors" : "Mohanlal"
+}
+{
+        "_id" : ObjectId("62834080ff21fb33aaaa82b4"),
+        "Title" : "RRR",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2022",
+        "Actors" : "Ramcharan"
+}
+{
+        "_id" : ObjectId("628c58e9236e5c730f1afd23"),
+        "Title" : "Krishna",
+        "Writer" : "Arun",
+        "Year" : "2010",
+        "Actors" : "Allu Arjun"
+}
+{
+        "_id" : ObjectId("628c5915236e5c730f1afd24"),
+        "Title" : "Madhuram",
+        "Writer" : "Ahammed",
+        "Year" : "2021",
+        "Actors" : "Joju"
+}
+{
+        "_id" : ObjectId("628c596f236e5c730f1afd25"),
+        "Title" : "Janaganamana",
+        "Writer" : "Dijo",
+        "Year" : "2022",
+        "Actors" : "Prithviraj"
+}
+{
+        "_id" : ObjectId("628c59a5236e5c730f1afd26"),
+        "Title" : "Doctor",
+        "Writer" : "Nelson",
+        "Year" : "2021",
+        "Actors" : "Sivakarthikeyan"
+}
+> db.Moviedetails.remove({"Title":"Doctor"})
+WriteResult({ "nRemoved" : 1 })
+> db.Moviedetails.find().pretty()
+{
+        "_id" : ObjectId("62833f07ff21fb33aaaa82af"),
+        "Title" : "Godha",
+        "Writer" : "Basil",
+        "Year" : "2017",
+        "Actors" : "Tovino"
+}
+{
+        "_id" : ObjectId("62833f5fff21fb33aaaa82b0"),
+        "Title" : "Queen",
+        "Writer" : "Dijo",
+        "Year" : "2018",
+        "Actors" : "Dhruvan"
+}
+{
+        "_id" : ObjectId("62833fb8ff21fb33aaaa82b1"),
+        "Title" : "KGF1",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2018",
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("6283400bff21fb33aaaa82b2"),
+        "Title" : "KGF2",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2022",
+        "Actors" : "Yash"
+}
+{
+        "_id" : ObjectId("62834051ff21fb33aaaa82b3"),
+        "Title" : "Minnaram",
+        "Writer" : "Priyadharshan",
+        "Year" : "1999",
+        "Actors" : "Mohanlal"
+}
+{
+        "_id" : ObjectId("62834080ff21fb33aaaa82b4"),
+        "Title" : "RRR",
+        "Writer" : "PrasanthNeel",
+        "Year" : "2022",
+        "Actors" : "Ramcharan"
+}
+{
+        "_id" : ObjectId("628c58e9236e5c730f1afd23"),
+        "Title" : "Krishna",
+        "Writer" : "Arun",
+        "Year" : "2010",
+        "Actors" : "Allu Arjun"
+}
+{
+        "_id" : ObjectId("628c5915236e5c730f1afd24"),
+        "Title" : "Madhuram",
+        "Writer" : "Ahammed",
+        "Year" : "2021",
+        "Actors" : "Joju"
+}
+{
+        "_id" : ObjectId("628c596f236e5c730f1afd25"),
+        "Title" : "Janaganamana",
+        "Writer" : "Dijo",
+        "Year" : "2022",
+        "Actors" : "Prithviraj"
+}
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

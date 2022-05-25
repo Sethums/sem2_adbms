@@ -1,0 +1,97 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\Administrator>mongo
+2022-05-17T10:43:53.262+0530 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, wi
+ll zero-out data files
+MongoDB shell version: 3.2.22
+connecting to: test
+> use dbdemo
+switched to db dbdemo
+> show dbs
+local  0.000GB
+> db.student.insert({"studid":"101","studname":"sethu"},{"studid":"102","studname":"anu"})
+WriteResult({ "nInserted" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("62833013f1b1098c2d8bb7b3"), "studid" : "101", "studname" : "sethu" }
+> db.student.insert([{"studid":"102","studname":"ammu"},{"studid":"103","studname":"anu"}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.student.find()
+{ "_id" : ObjectId("62833013f1b1098c2d8bb7b3"), "studid" : "101", "studname" : "sethu" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b4"), "studid" : "102", "studname" : "ammu" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b5"), "studid" : "103", "studname" : "anu" }
+> db.student.find().pretty
+function () {
+    this._prettyShell = true;
+    return this;
+}
+> db.student.find().pretty()
+{
+        "_id" : ObjectId("62833013f1b1098c2d8bb7b3"),
+        "studid" : "101",
+        "studname" : "sethu"
+}
+{
+        "_id" : ObjectId("6283316ff1b1098c2d8bb7b4"),
+        "studid" : "102",
+        "studname" : "ammu"
+}
+{
+        "_id" : ObjectId("6283316ff1b1098c2d8bb7b5"),
+        "studid" : "103",
+        "studname" : "anu"
+}
+> db.student.update({"studname":"ammu"},{"studname":"jeni"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("62833013f1b1098c2d8bb7b3"), "studid" : "101", "studname" : "sethu" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b4"), "studname" : "jeni" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b5"), "studid" : "103", "studname" : "anu" }
+> db.student.update({"studid":"102","studname":"ammu"},{"studid":"102","studname":"keerthi"})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.student.find()
+{ "_id" : ObjectId("62833013f1b1098c2d8bb7b3"), "studid" : "101", "studname" : "sethu" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b4"), "studname" : "jeni" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b5"), "studid" : "103", "studname" : "anu" }
+> db.student.update({"studid":"103","studname":"anu"},{"studid":"103","studname":"keerthi"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("62833013f1b1098c2d8bb7b3"), "studid" : "101", "studname" : "sethu" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b4"), "studname" : "jeni" }
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b5"), "studid" : "103", "studname" : "keerthi" }
+> db.student.find("studid".($gte:"103"))
+2022-05-17T11:13:13.816+0530 E QUERY    [thread1] SyntaxError: missing name after . operator @(shell
+):1:25
+
+> db.student.find("studid".($gte:"103"),"studname":"keerthi")
+2022-05-17T11:14:24.484+0530 E QUERY    [thread1] SyntaxError: missing name after . operator @(shell
+):1:25
+
+> db.student.find("studid":($gte:"103"))
+2022-05-17T11:18:49.526+0530 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell
+):1:24
+
+> db.student.find({"studid":($gte:"103")})
+2022-05-17T11:21:55.557+0530 E QUERY    [thread1] SyntaxError: missing ) in parenthetical @(shell):1
+:31
+
+> db.student.find({"studid"}:($gte:"103"))
+2022-05-17T11:22:10.887+0530 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):
+1:25
+
+> db.student.find{"studid":{$gte:"103"}}
+2022-05-17T11:23:11.054+0530 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1
+:15
+
+> db.student.find({"studid":{$gte:"103"}})
+{ "_id" : ObjectId("6283316ff1b1098c2d8bb7b5"), "studid" : "103", "studname" : "keerthi" }
+>

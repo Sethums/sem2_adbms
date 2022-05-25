@@ -1,0 +1,16 @@
+SQL> SET SERVEROUTPUT ON
+SQL> declare
+  2  n number:=1680;
+  3  r number;
+  4  begin
+  5  r:=mod(n,2);
+  6  if r=0 then
+  7  dbms_output.put_line('Even');
+  8  else
+  9  dbms_output.put_line('Odd');
+ 10  end if;
+ 11  end;
+ 12  /
+Even
+
+PL/SQL procedure successfully completed.

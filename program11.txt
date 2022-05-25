@@ -1,0 +1,12 @@
+SQL> DECLARE
+  2  x number:=5;
+  3  y number:=4;
+  4  z number(5);
+  5  BEGIN
+  6  z:=x+y;
+  7  DBMS_OUTPUT.PUT_LINE(z);
+  8  END;
+  9  /
+9
+
+PL/SQL procedure successfully completed.

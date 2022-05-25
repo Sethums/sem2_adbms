@@ -1,0 +1,15 @@
+SQL> declare
+  2  a number;
+  3  procedure squarenum(x in out number) is
+  4  begin
+  5  x:=x*x;
+  6  end;
+  7  begin
+  8  a:=10;
+  9  squarenum(a);
+ 10  dbms_output.put_line('Square is'||a);
+ 11  end;
+ 12  /
+Square is100
+
+PL/SQL procedure successfully completed.

@@ -1,0 +1,38 @@
+
+C:\Users\Administrator>mongo
+2022-05-17T09:57:23.382+0530 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, wi
+ll zero-out data files
+MongoDB shell version: 3.2.22
+connecting to: test
+> use mydb
+switched to db mydb
+> show dbs
+local  0.000GB
+> db.createCollection("mycollection")
+{ "ok" : 1 }
+> show dbs
+local  0.000GB
+mydb   0.000GB
+> db.mycollection.insert({"name":"docdemo"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+mycollection
+
+
+
+> db.collection2.insert({"name":"docdemo2"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+collection2
+mycollection
+> db.collection2.drop()
+true
+> show collections
+mycollection
+> db.dropDatabase()
+{ "dropped" : "mydb", "ok" : 1 }
+> show dbs
+local  0.000GB
+
+
+>

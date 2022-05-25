@@ -1,0 +1,106 @@
+C:\Users\Administrator>mongo
+2022-05-17T11:29:15.276+0530 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, wi
+ll zero-out data files
+MongoDB shell version: 3.2.22
+connecting to: test
+> use Employee
+switched to db Employee
+> db.EMPL.insert({"empno":"1","empname":"sethu","salary":"30000","role":"manager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"2","empname":"sonu","salary":"40000","role":"manager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"3","empname":"Keerthi","salary":"20000","role":"Designer"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"4","empname":"James","salary":"40000","role":"Tester"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"5","empname":"John","salary":"40000","role":"Tester"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"6","empname":"Aswini","salary":"50000","role":"Developer"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"7","empname":"Sonia","salary":"70000","role":"HRManager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"8","empname":"Anu","salary":"60000","role":"SalesManager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"9","empname":"Akhil","salary":"50000","role":"Developer"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":"10","empname":"Arnav","salary":"50000","role":"Designer"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62833ac5e7ff1a6ff66d6d72"),
+        "empno" : "1",
+        "empname" : "sethu",
+        "salary" : "30000",
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("62833adde7ff1a6ff66d6d73"),
+        "empno" : "2",
+        "empname" : "sonu",
+        "salary" : "40000",
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("62833afde7ff1a6ff66d6d74"),
+        "empno" : "3",
+        "empname" : "Keerthi",
+        "salary" : "20000",
+        "role" : "Designer"
+}
+{
+        "_id" : ObjectId("62833b27e7ff1a6ff66d6d75"),
+        "empno" : "4",
+        "empname" : "James",
+        "salary" : "40000",
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("62833b40e7ff1a6ff66d6d76"),
+        "empno" : "5",
+        "empname" : "John",
+        "salary" : "40000",
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("62833b61e7ff1a6ff66d6d77"),
+        "empno" : "6",
+        "empname" : "Aswini",
+        "salary" : "50000",
+        "role" : "Developer"
+}
+{
+        "_id" : ObjectId("62833b81e7ff1a6ff66d6d78"),
+        "empno" : "7",
+        "empname" : "Sonia",
+        "salary" : "70000",
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("62833ba1e7ff1a6ff66d6d79"),
+        "empno" : "8",
+        "empname" : "Anu",
+        "salary" : "60000",
+        "role" : "SalesManager"
+}
+{
+        "_id" : ObjectId("62833bc8e7ff1a6ff66d6d7a"),
+        "empno" : "9",
+        "empname" : "Akhil",
+        "salary" : "50000",
+        "role" : "Developer"
+}
+{
+        "_id" : ObjectId("62833bf8e7ff1a6ff66d6d7b"),
+        "empno" : "10",
+        "empname" : "Arnav",
+        "salary" : "50000",
+        "role" : "Designer"
+}
+>
+
+
+
+
+
+
+

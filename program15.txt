@@ -1,0 +1,19 @@
+SQL> create or replace procedure findmax(x in number,y in number,z out number) is
+  2  begin
+  3  if x>y then
+  4  z:=x;
+  5  else
+  6  z:=y;
+  7  end if;
+  8  end;
+  9  declare
+ 10  a number;
+ 11  b number;
+ 12  c number;
+ 13  begin
+ 14  a:=33;
+ 15  b:=65;
+ 16  findmax(a,b,c);
+ 17  dbms_output.put_line('Max:'||c);
+ 18  end;
+ 19  /
