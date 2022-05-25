@@ -1,15 +1,15 @@
-SQL> create or replace procedure findmax(x in number,y in number,z out number) is
-  2  begin
-  3  if x>y then
-  4  z:=x;
-  5  else
-  6  z:=y;
-  7  end if;
-  8  end;
-  9  declare
- 10  a number;
- 11  b number;
- 12  c number;
+SQL> declare
+  2  a number;
+  3  b number;
+  4  c number;
+  5  procedure findmax(x in number,y in number,z out number) is
+  6  begin
+  7  if x>y then
+  8  z:=x;
+  9  else
+ 10  z:=y;
+ 11  end if;
+ 12  end;
  13  begin
  14  a:=33;
  15  b:=65;
