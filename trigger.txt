@@ -1,0 +1,176 @@
+SQL> CREATE TABLE tbl_cust(id int not null,name varchar(20) not null,age int not null,addr
+ess varchar(50) not null,salary int not null,primary key(id));
+
+Table created.
+
+SQL> INSERT INTO tbl_cust VALUES(1,"Ramesh",23,"Allahabad",20000);
+INSERT INTO tbl_cust VALUES(1,"Ramesh",23,"Allahabad",20000)
+                                          *
+ERROR at line 1:
+ORA-00984: column not allowed here
+
+
+SQL> INSERT INTO tbl_cust VALUES(1,'Ramesh',23,'Allahabad',20000);
+
+1 row created.
+
+SQL> INSERT INTO tbl_cust VALUES(2,'Suresh',22,'Kanpur',22000);
+
+1 row created.
+
+SQL> INSERT INTO tbl_cust VALUES(3,'Mahesh',24,'Ghaziabad',24000);
+
+1 row created.
+
+SQL> INSERT INTO tbl_cust VALUES(4,'Chandran',25,'Noida',26000);
+
+1 row created.
+
+SQL> INSERT INTO tbl_cust VALUES(5,'Alex',21,'Paris',28000);
+
+1 row created.
+
+SQL> INSERT INTO tbl_cust VALUES(6,'Sunita',20,'Delhi',30000);
+
+1 row created.
+
+SQL> SELECT * FROM tbl_cust;
+
+        ID NAME                        AGE
+---------- -------------------- ----------
+ADDRESS                                                SALARY
+-------------------------------------------------- ----------
+         1 Ramesh                       23
+Allahabad                                               20000
+
+         2 Suresh                       22
+Kanpur                                                  22000
+
+         3 Mahesh                       24
+Ghaziabad                                               24000
+
+
+        ID NAME                        AGE
+---------- -------------------- ----------
+ADDRESS                                                SALARY
+-------------------------------------------------- ----------
+         4 Chandran                     25
+Noida                                                   26000
+
+         5 Alex                         21
+Paris                                                   28000
+
+         6 Sunita                       20
+Delhi                                                   30000
+
+
+6 rows selected.
+SQL> SET SERVEROUTPUT ON;
+SQL> CREATE OR REPLACE TRIGGER display_change_salary
+  2  BEFORE DELETE OR INSERt OR UPDATE ON tbl_cust
+  3  FOR EACH ROW
+  4  WHEN(NEW.ID>0)
+  5  DECLARE
+  6  sal_diff number;
+  7  BEGIN
+  8  sal_diff:=:NEW.salary-:OLD.salary;
+  9  dbms_output.put_line('Old salary:'||:OLD.salary);
+ 10  dbms_output.put_line('New salary:'||:NEW.salary);
+ 11  dbms_output.put_line('Salary difference:'||sal_diff);
+ 12  END;
+ 13  /
+
+Trigger created.
+
+SQL> DECLARE
+  2  total_rows number(2);
+  3  BEGIN
+  4  UPDATE tbl_cust
+  5  SET salary=salary+5000;
+  6  IF sql%notfound THEN
+  7  dbms_output.put_line('No customers updated');
+  8  ELSIF sql%found THEN
+  9  total_rows:=sql%rowcount;
+ 10  dbms_output.put_line(total_rows||'customers updated');
+ 11  END IF;
+ 12  END;
+ 13  /
+Old salary:20000
+New salary:25000
+Salary difference:5000
+Old salary:22000
+New salary:27000
+Salary difference:5000
+Old salary:24000
+New salary:29000
+Salary difference:5000
+Old salary:26000
+New salary:31000
+Salary difference:5000
+Old salary:28000
+New salary:33000
+Salary difference:5000
+Old salary:30000
+New salary:35000
+Salary difference:5000
+6customers updated
+
+PL/SQL procedure successfully completed.
+
+SQL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+SQL> DECLARE
+  2  c_id tbl_cust.id%type;
+  3  c_name tbl_cust.address%type;
+  4  c_address tbl_cust.name%type;
+  5  CURSOR c_tbl_cust is
+  6  SELECT id,name,address FROm tbl_cust;
+  7  BEGIN
+  8  OPEN c_tbl_cust;
+  9  LOOP
+ 10  FETCH c_tbl_cust into c_id,c_address,c_name;
+ 11  EXIT WHEN c_tbl_cust%notfound;
+ 12  dbms_output.put_line(c_id||''||c_address||''||c_name);
+ 13  END LOOP;
+ 14  CLOSE c_tbl_cust;
+ 15  END;
+ 16  /
+1RameshAllahabad
+2SureshKanpur
+3MaheshGhaziabad
+4ChandranNoida
+5AlexParis
+6SunitaDelhi
+
+PL/SQL procedure successfully completed.
