@@ -1,0 +1,304 @@
+> use Emp
+switched to db Emp
+> db.EMPL.insert({"empno":1,"empname":"sethu","salary":30000,"role":"manager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":2,"empname":"sonu","salary":40000,"role":"manager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":3,"empname":"Keerthi","salary":20000,"role":"Designer"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":4,"empname":"James","salary":40000,"role":"Tester"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":5,"empname":"John","salary":40000,"role":"Tester"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":6,"empname":"aswini","salary":50000,"role":"Developer"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":7,"empname":"Sonia","salary":70000,"role":"HRManager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":8,"empname":"Jeyk","salary":70000,"role":"HRManager"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"empno":9,"empname":"ST","salary":50000,"role":"Designer"})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("6295a10118ea4bc827fe94e0"),
+        "empno" : 1,
+        "empname" : "sethu",
+        "salary" : 30000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a11418ea4bc827fe94e1"),
+        "empno" : 2,
+        "empname" : "sonu",
+        "salary" : 40000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a13018ea4bc827fe94e2"),
+        "empno" : 3,
+        "empname" : "Keerthi",
+        "salary" : 20000,
+        "role" : "Designer"
+}
+{
+        "_id" : ObjectId("6295a14b18ea4bc827fe94e3"),
+        "empno" : 4,
+        "empname" : "James",
+        "salary" : 40000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a15918ea4bc827fe94e4"),
+        "empno" : 5,
+        "empname" : "John",
+        "salary" : 40000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a17018ea4bc827fe94e5"),
+        "empno" : 6,
+        "empname" : "aswini",
+        "salary" : 50000,
+        "role" : "Developer"
+}
+{
+        "_id" : ObjectId("6295a1a118ea4bc827fe94e6"),
+        "empno" : 7,
+        "empname" : "Sonia",
+        "salary" : 70000,
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("6295a23e18ea4bc827fe94e7"),
+        "empno" : 8,
+        "empname" : "Jeyk",
+        "salary" : 70000,
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("6295a25e18ea4bc827fe94e8"),
+        "empno" : 9,
+        "empname" : "ST",
+        "salary" : 50000,
+        "role" : "Designer"
+}
+> db.EMPL.find({empname:/^s/})
+{ "_id" : ObjectId("6295a10118ea4bc827fe94e0"), "empno" : 1, "empname" : "sethu", "salary" : 30000,
+"role" : "manager" }
+{ "_id" : ObjectId("6295a11418ea4bc827fe94e1"), "empno" : 2, "empname" : "sonu", "salary" : 40000, "
+role" : "manager" }
+> db.EMPL.find({empname:/k$/})
+{ "_id" : ObjectId("6295a23e18ea4bc827fe94e7"), "empno" : 8, "empname" : "Jeyk", "salary" : 70000, "
+role" : "HRManager" }
+> db.EMPL.find({empname:/s/})
+{ "_id" : ObjectId("6295a10118ea4bc827fe94e0"), "empno" : 1, "empname" : "sethu", "salary" : 30000,
+"role" : "manager" }
+{ "_id" : ObjectId("6295a11418ea4bc827fe94e1"), "empno" : 2, "empname" : "sonu", "salary" : 40000, "
+role" : "manager" }
+{ "_id" : ObjectId("6295a14b18ea4bc827fe94e3"), "empno" : 4, "empname" : "James", "salary" : 40000,
+"role" : "Tester" }
+{ "_id" : ObjectId("6295a17018ea4bc827fe94e5"), "empno" : 6, "empname" : "aswini", "salary" : 50000,
+ "role" : "Developer" }
+
+
+
+> db.EMPL.update({empname:"ST"},{$inc:{salary:8000}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("6295a10118ea4bc827fe94e0"),
+        "empno" : 1,
+        "empname" : "sethu",
+        "salary" : 30000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a11418ea4bc827fe94e1"),
+        "empno" : 2,
+        "empname" : "sonu",
+        "salary" : 40000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a13018ea4bc827fe94e2"),
+        "empno" : 3,
+        "empname" : "Keerthi",
+        "salary" : 20000,
+        "role" : "Designer"
+}
+{
+        "_id" : ObjectId("6295a14b18ea4bc827fe94e3"),
+        "empno" : 4,
+        "empname" : "James",
+        "salary" : 40000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a15918ea4bc827fe94e4"),
+        "empno" : 5,
+        "empname" : "John",
+        "salary" : 40000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a17018ea4bc827fe94e5"),
+        "empno" : 6,
+        "empname" : "aswini",
+        "salary" : 50000,
+        "role" : "Developer"
+}
+{
+        "_id" : ObjectId("6295a1a118ea4bc827fe94e6"),
+        "empno" : 7,
+        "empname" : "Sonia",
+        "salary" : 70000,
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("6295a23e18ea4bc827fe94e7"),
+        "empno" : 8,
+        "empname" : "Jeyk",
+        "salary" : 70000,
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("6295a25e18ea4bc827fe94e8"),
+        "empno" : 9,
+        "empname" : "ST",
+        "salary" : 58000,
+        "role" : "Designer"
+}
+> db.EMPL.updateMany({},{$inc:{salary:4000}})
+{ "acknowledged" : true, "matchedCount" : 9, "modifiedCount" : 9 }
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("6295a10118ea4bc827fe94e0"),
+        "empno" : 1,
+        "empname" : "sethu",
+        "salary" : 34000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a11418ea4bc827fe94e1"),
+        "empno" : 2,
+        "empname" : "sonu",
+        "salary" : 44000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a13018ea4bc827fe94e2"),
+        "empno" : 3,
+        "empname" : "Keerthi",
+        "salary" : 24000,
+        "role" : "Designer"
+}
+{
+        "_id" : ObjectId("6295a14b18ea4bc827fe94e3"),
+        "empno" : 4,
+        "empname" : "James",
+        "salary" : 44000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a15918ea4bc827fe94e4"),
+        "empno" : 5,
+        "empname" : "John",
+        "salary" : 44000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a17018ea4bc827fe94e5"),
+        "empno" : 6,
+        "empname" : "aswini",
+        "salary" : 54000,
+        "role" : "Developer"
+}
+{
+        "_id" : ObjectId("6295a1a118ea4bc827fe94e6"),
+        "empno" : 7,
+        "empname" : "Sonia",
+        "salary" : 74000,
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("6295a23e18ea4bc827fe94e7"),
+        "empno" : 8,
+        "empname" : "Jeyk",
+        "salary" : 74000,
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("6295a25e18ea4bc827fe94e8"),
+        "empno" : 9,
+        "empname" : "ST",
+        "salary" : 62000,
+        "role" : "Designer"
+}
+> db.EMPL.update({empname:"Sonia"},{$set:{remark:"WC"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("6295a10118ea4bc827fe94e0"),
+        "empno" : 1,
+        "empname" : "sethu",
+        "salary" : 34000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a11418ea4bc827fe94e1"),
+        "empno" : 2,
+        "empname" : "sonu",
+        "salary" : 44000,
+        "role" : "manager"
+}
+{
+        "_id" : ObjectId("6295a13018ea4bc827fe94e2"),
+        "empno" : 3,
+        "empname" : "Keerthi",
+        "salary" : 24000,
+        "role" : "Designer"
+}
+{
+        "_id" : ObjectId("6295a14b18ea4bc827fe94e3"),
+        "empno" : 4,
+        "empname" : "James",
+        "salary" : 44000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a15918ea4bc827fe94e4"),
+        "empno" : 5,
+        "empname" : "John",
+        "salary" : 44000,
+        "role" : "Tester"
+}
+{
+        "_id" : ObjectId("6295a17018ea4bc827fe94e5"),
+        "empno" : 6,
+        "empname" : "aswini",
+        "salary" : 54000,
+        "role" : "Developer"
+}
+{
+        "_id" : ObjectId("6295a1a118ea4bc827fe94e6"),
+        "empno" : 7,
+        "empname" : "Sonia",
+        "salary" : 74000,
+        "role" : "HRManager",
+        "remark" : "WC"
+}
+{
+        "_id" : ObjectId("6295a23e18ea4bc827fe94e7"),
+        "empno" : 8,
+        "empname" : "Jeyk",
+        "salary" : 74000,
+        "role" : "HRManager"
+}
+{
+        "_id" : ObjectId("6295a25e18ea4bc827fe94e8"),
+        "empno" : 9,
+        "empname" : "ST",
+        "salary" : 62000,
+        "role" : "Designer"
+}
+>
