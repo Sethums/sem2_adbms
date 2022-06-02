@@ -1,0 +1,23 @@
+> use admin
+switched to db admin
+
+> db.createUser({user:"mohan",pwd:"pass",roles:[{role:"read",db:"Marketing"},{role:"readWrite",db:"S
+ales"}]})
+Successfully added user: {
+        "user" : "mohan",
+        "roles" : [
+                {
+                        "role" : "read",
+                        "db" : "Marketing"
+                },
+                {
+                        "role" : "readWrite",
+                        "db" : "Sales"
+                }
+        ]
+}
+>
+
+
+
+
